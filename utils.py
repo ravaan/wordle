@@ -1,7 +1,7 @@
 import argparse
 from pickle import NONE
 import random
-from wordfreq import word_frequency
+from wordfreq import zipf_frequency
 from constants import *
 
 def get_difficulty_to_words_map(difficulty=None):
@@ -18,10 +18,10 @@ def get_word_difficulty(word):
     """
     Returns the difficulty of the word
     """
-    frequency = word_frequency(word)
-    if frequency >  0.0358:
+    frequency = zipf_frequency(word, 'en')
+    if frequency >  2.63:
         return 1
-    elif frequency > 0.0179:
+    elif frequency > 1.7:
         return 2
     return 3
 
@@ -49,7 +49,7 @@ def validate_args(args):
     print("Validating arguments...")
     if not args.word:
         args.word = get_word(args.length, args.difficulty)
-    args.word = args.word.upper()
+    args.word = args.word.lower()
     if args.word not in WORDS:
         raise ValueError("Word not in dictionary")
     if args.difficulty not in DIFFICULTY_CHOICES:
