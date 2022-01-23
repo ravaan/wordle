@@ -2,8 +2,7 @@ import argparse
 from pickle import NONE
 import random
 from wordfreq import word_frequency
-
-from constants import DIFFICULTY_CHOICES, FILENAME, MAX_GUESSES, MAX_WORD_LENGTH, MIN_GUESSES, MIN_WORD_LENGTH, WORDS
+from constants import *
 
 def get_difficulty_to_words_map(difficulty=None):
     difficulty_to_words_map = {}
@@ -80,12 +79,4 @@ def fetch_arguments_parser():
     parser.add_argument('-s', type='--slow', 
                         help='Wait for user input after every guess', default=False,
                         required=False)
-
-
-def load_dict(filename=FILENAME):
-    """
-    Loads the dictionary of words from the file words.txt
-    """
-    with open(filename, "r") as f:
-        words = f.read().splitlines()
-    return words
+    return parser
