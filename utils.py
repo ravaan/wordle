@@ -35,7 +35,7 @@ def get_word(length=None, difficulty=None):
     
     word = NONE
     WORD_SEARCH_LIMIT = 1000
-    for i in range(WORD_SEARCH_LIMIT):
+    for _ in range(WORD_SEARCH_LIMIT):
         word = random.choice(list(word_of_difficulty))
         if len(word) != length:
             continue
