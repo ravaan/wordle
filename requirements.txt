@@ -1,0 +1,8 @@
+ftfy       6.0.3
+langcodes  3.3.0
+msgpack    1.0.3
+pip        20.2.3
+regex      2022.1.18
+setuptools 49.2.1
+wcwidth    0.2.5
+wordfreq   2.5.1
