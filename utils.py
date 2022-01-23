@@ -66,17 +66,17 @@ def validate_args(args):
 
 def fetch_arguments_parser():
     parser = argparse.ArgumentParser(description='Worlde bot')
-    parser.add_argument('-w', 'word', type=str,
+    parser.add_argument('-w', '--word', type=str,
                         help='Word to solve', default=None, required=False)
-    parser.add_argument('-l', 'length', type=int,
+    parser.add_argument('-l', '--length', type=int,
                         help='Length of the word', default=None, required=False)
-    parser.add_argument('-d', 'difficulty', type=str,
+    parser.add_argument('-d', '--difficulty', type=str,
                         help='Difficulty of the word', default=None, required=False)
-    parser.add_argument('-s', 'solution', type=str,
+    parser.add_argument('--sol', '--solution', type=str,
                         help='Solution of the word', default=None, required=False)
-    parser.add_argument('-g', 'guesses', type=str,
+    parser.add_argument('-g', '--guesses', type=str,
                         help='Number of gussess allowed', default=None, required=False)
-    parser.add_argument('-s', type='--slow', 
-                        help='Wait for user input after every guess', default=False,
+    parser.add_argument('-s', '--slow', type=str, 
+                        help='Wait for user input after every guess', default=None,
                         required=False)
     return parser
