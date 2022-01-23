@@ -55,12 +55,13 @@ def validate_args(args):
     if args.difficulty not in DIFFICULTY_CHOICES:
         raise ValueError(
             "Difficulty must be one of {}".format(DIFFICULTY_CHOICES))
-    if args.length < MAX_WORD_LENGTH or args.length > MAX_WORD_LENGTH:
+    if args.length < MIN_WORD_LENGTH or args.length > MAX_WORD_LENGTH:
         raise ValueError("Word length must be between {} and {}".format(
             MIN_WORD_LENGTH, MAX_WORD_LENGTH))
-    if args.guesses < MAX_GUESSES or args.guesses > MAX_GUESSES:
+    if args.guesses < MIN_GUESSES or args.guesses > MAX_GUESSES:
         raise ValueError("Number of guesses must be between {} and {}".format(
             MIN_GUESSES, MAX_GUESSES))
+    print("Arguments validated successfully!")
     return args
 
 
@@ -69,13 +70,11 @@ def fetch_arguments_parser():
     parser.add_argument('-w', '--word', type=str,
                         help='Word to solve', default=None, required=False)
     parser.add_argument('-l', '--length', type=int,
-                        help='Length of the word', default=None, required=False)
+                        help='Length of the word', default=DEFAULT_WORD_LENGTH, required=False)
     parser.add_argument('-d', '--difficulty', type=str,
-                        help='Difficulty of the word', default=None, required=False)
-    parser.add_argument('--sol', '--solution', type=str,
-                        help='Solution of the word', default=None, required=False)
+                        help='Difficulty of the word', default=DEFAULT_DIFFICULTY, required=False)
     parser.add_argument('-g', '--guesses', type=str,
-                        help='Number of gussess allowed', default=None, required=False)
+                        help='Number of gussess allowed', default=DEFAULT_NUM_GUESSES, required=False)
     parser.add_argument('-s', '--slow', type=str, 
                         help='Wait for user input after every guess', default=None,
                         required=False)
